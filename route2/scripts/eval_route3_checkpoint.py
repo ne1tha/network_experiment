@@ -11,7 +11,10 @@ PROJECT_PARENT = Path(__file__).resolve().parents[2]
 if str(PROJECT_PARENT) not in sys.path:
     sys.path.insert(0, str(PROJECT_PARENT))
 
-DEFAULT_ROUTE3_ROOT = PROJECT_PARENT / "codex_route3_neu"
+DEFAULT_ROUTE3_ROOT = PROJECT_PARENT / "route3"
+LEGACY_ROUTE3_ROOT = PROJECT_PARENT / "codex_route3_neu"
+if not DEFAULT_ROUTE3_ROOT.exists():
+    DEFAULT_ROUTE3_ROOT = LEGACY_ROUTE3_ROOT
 if str(DEFAULT_ROUTE3_ROOT) not in sys.path:
     sys.path.insert(0, str(DEFAULT_ROUTE3_ROOT))
 
@@ -36,7 +39,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--kodak-dir",
         type=Path,
-        default=Path("/mnt/nvme/jiwang/route1_datasets/Kodak"),
+        default=PROJECT_PARENT / "route3" / "data" / "Kodak",
         help="Kodak image directory.",
     )
     parser.add_argument("--device", default="auto", help="cpu, cuda, cuda:N, or auto.")

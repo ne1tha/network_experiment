@@ -1,0 +1,26 @@
+{
+  "root": "/abs/path/to/route3_images",
+  "splits": {
+    "train": [
+      {
+        "image": "train/sample_0001.png",
+        "user_id": "user_0001"
+      },
+      {
+        "image": "train/sample_0002.png",
+        "user_id": "user_0002"
+      }
+    ],
+    "val": [
+      {
+        "image": "val/sample_0001.png",
+        "user_id": "user_1001"
+      },
+      {
+        "image": "val/sample_0002.png",
+        "user_id": "user_1002"
+      }
+    ]
+  }
+}
+

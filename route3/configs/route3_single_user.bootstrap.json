@@ -1,0 +1,52 @@
+{
+  "dataset": {
+    "manifest_path": "datasets/route3_manifest.local.json",
+    "train_split": "train",
+    "val_split": "val",
+    "image_size": [
+      128,
+      128
+    ],
+    "dry_run_samples": 2
+  },
+  "weights": {
+    "teacher_checkpoint": null,
+    "vgg_checkpoint": null,
+    "allow_untrained_vgg": true
+  },
+  "runtime": {
+    "mode": "single_user",
+    "device": "auto",
+    "semantic_channel_type": "awgn",
+    "detail_channel_type": "awgn",
+    "enable_distillation": false,
+    "enable_perceptual": true,
+    "enable_adversarial": true,
+    "sem_rate_ratio": 0.5,
+    "det_rate_ratio": 0.75,
+    "semantic_bandwidth_budget": 10.0,
+    "snr_db": 10.0
+  },
+  "artifacts": {
+    "output_dir": "outputs/bootstrap_single_user",
+    "checkpoint_dir": "outputs/bootstrap_single_user/checkpoints",
+    "report_dir": "outputs/bootstrap_single_user/reports"
+  },
+  "trainer": {
+    "epochs": 20,
+    "batch_size": 4,
+    "num_workers": 0,
+    "seed": 2026,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "distillation_weight": 1.0,
+    "enhancement_weight": 1.0,
+    "max_grad_norm": 1.0,
+    "log_every_steps": 10,
+    "validate_every_epochs": 1,
+    "checkpoint_every_epochs": 1,
+    "max_train_batches": null,
+    "max_val_batches": null,
+    "resume_checkpoint": null
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "dataset": {
+    "manifest_path": "/abs/path/to/route3_manifest.json",
+    "train_split": "train",
+    "val_split": "val",
+    "image_size": [
+      128,
+      128
+    ],
+    "dry_run_samples": 4
+  },
+  "weights": {
+    "teacher_checkpoint": null,
+    "vgg_checkpoint": "/abs/path/to/vgg19-dcbb9e9d.pth",
+    "allow_untrained_vgg": false
+  },
+  "runtime": {
+    "mode": "single_user",
+    "device": "auto",
+    "semantic_channel_type": "awgn",
+    "detail_channel_type": "awgn",
+    "operating_mode": "open_quality",
+    "enable_distillation": false,
+    "enable_perceptual": true,
+    "enable_adversarial": true,
+    "sem_rate_ratio": 0.5,
+    "det_rate_ratio": 0.75,
+    "semantic_bandwidth_budget": 10.0,
+    "snr_db": 10.0,
+    "train_snr_db_choices": [
+      7.0,
+      10.0,
+      13.0
+    ],
+    "train_det_rate_ratio_range": [
+      0.65,
+      0.85
+    ]
+  },
+  "artifacts": {
+    "output_dir": "outputs/stageA_single_user_progressive300_public",
+    "checkpoint_dir": "outputs/stageA_single_user_progressive300_public/checkpoints",
+    "report_dir": "outputs/stageA_single_user_progressive300_public/reports"
+  },
+  "trainer": {
+    "epochs": 300,
+    "batch_size": 8,
+    "num_workers": 8,
+    "seed": 2026,
+    "learning_rate": 0.00005,
+    "weight_decay": 0.0,
+    "distillation_weight": 1.0,
+    "enhancement_weight": 0.5,
+    "phase1_epochs": 120,
+    "phase2_epochs": 80,
+    "perceptual_weight_max": 1.0,
+    "perceptual_loss_scale": 0.04,
+    "adversarial_weight": 0.03,
+    "adversarial_ramp_epochs": 20,
+    "max_grad_norm": 1.0,
+    "train_decode_stochastic": false,
+    "val_decode_stochastic": false,
+    "log_every_steps": 20,
+    "validate_every_epochs": 5,
+    "checkpoint_every_epochs": 10,
+    "max_train_batches": null,
+    "max_val_batches": null,
+    "trainable_prefixes": null,
+    "init_model_checkpoint": null,
+    "resume_checkpoint": null
+  }
+}

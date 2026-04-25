@@ -1,0 +1,35 @@
+{
+  "dataset": {
+    "manifest_path": "/abs/path/to/route3_manifest.json",
+    "train_split": "train",
+    "val_split": "val",
+    "image_size": [
+      128,
+      128
+    ],
+    "dry_run_samples": 2
+  },
+  "weights": {
+    "teacher_checkpoint": "/abs/path/to/teacher_semantic.pt",
+    "vgg_checkpoint": null,
+    "allow_untrained_vgg": true
+  },
+  "runtime": {
+    "mode": "single_user",
+    "device": "auto",
+    "semantic_channel_type": "awgn",
+    "detail_channel_type": "awgn",
+    "enable_distillation": true,
+    "enable_perceptual": true,
+    "enable_adversarial": true,
+    "sem_rate_ratio": 0.5,
+    "det_rate_ratio": 0.75,
+    "semantic_bandwidth_budget": 10.0,
+    "snr_db": 10.0
+  },
+  "artifacts": {
+    "output_dir": "/abs/path/to/route3_outputs",
+    "checkpoint_dir": "/abs/path/to/route3_outputs/checkpoints",
+    "report_dir": "/abs/path/to/route3_outputs/reports"
+  }
+}
