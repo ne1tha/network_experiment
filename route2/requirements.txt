@@ -1,0 +1,6 @@
+torch>=2.1
+torchvision>=0.16
+timm>=0.9
+pillow>=10
+pytest>=8
+lpips>=0.1.4

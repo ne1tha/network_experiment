@@ -1,0 +1,48 @@
+{
+  "benchmark_name": "three_route_kodak_single_user_primary",
+  "reference_channel_type": "awgn",
+  "reference_snr_db": 10.0,
+  "reference_cbr": 0.0625,
+  "cost_tolerance_ratio": 0.05,
+  "anchors": {
+    "psnr_min": 20.0,
+    "psnr_max": 30.0,
+    "ms_ssim_min": 0.75,
+    "ms_ssim_max": 0.95,
+    "lpips_best": 0.30,
+    "lpips_worst": 0.60
+  },
+  "weights": {
+    "psnr": 0.4,
+    "ms_ssim": 0.3,
+    "lpips": 0.3
+  },
+  "entries": [
+    {
+      "name": "route1_candidate",
+      "route_family": "route1",
+      "summary_path": "/path/to/route1_unified_summary.json",
+      "channel_type": "awgn",
+      "snr_db": 10.0,
+      "rate": 96,
+      "notes": "Use the route2-owned eval_route1_checkpoint.py bridge output."
+    },
+    {
+      "name": "route2_candidate",
+      "route_family": "route2",
+      "summary_path": "/path/to/route2_summary.json",
+      "channel_type": "awgn",
+      "snr_db": 10.0,
+      "rate": 96,
+      "notes": "Use a route2 evaluation run at the same channel and SNR."
+    },
+    {
+      "name": "route3_candidate",
+      "route_family": "route3",
+      "summary_path": "/path/to/route3_unified_summary.json",
+      "channel_type": "awgn",
+      "snr_db": 10.0,
+      "notes": "Use the route2-owned eval_route3_checkpoint.py bridge output."
+    }
+  ]
+}
